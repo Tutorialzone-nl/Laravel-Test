@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: olivia
- * Date: 2/10/18
- * Time: 1:41 PM
- */
 
 namespace App\Http\Controllers;
 
@@ -21,12 +15,6 @@ class AccountController extends Controller
 
     public function index(Request $request)
     {
-        foreach (Auth::user()->roles() as $role) {
-            echo '<pre>';
-            echo var_export($role, true);
-            echo '</pre>';
-        }
-
         if ($request->method() === 'POST') {
             $mood = $request->post('mood');
 
@@ -40,6 +28,6 @@ class AccountController extends Controller
             }
         }
 
-        return view('account/settings');
+        return view('account/settings', ['roles' => Auth::user()->roles()]);
     }
 }

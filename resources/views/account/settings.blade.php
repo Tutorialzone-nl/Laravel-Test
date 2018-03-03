@@ -1,3 +1,5 @@
+{{ var_dump($roles->get()) }}
+
 @extends('layouts.app')
 
 @section('content')
