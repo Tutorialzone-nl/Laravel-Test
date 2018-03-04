@@ -21,12 +21,6 @@ class AccountController extends Controller
 
     public function index(Request $request)
     {
-        foreach (Auth::user()->roles() as $role) {
-            echo '<pre>';
-            echo var_export($role, true);
-            echo '</pre>';
-        }
-
         if ($request->method() === 'POST') {
             $mood = $request->post('mood');
 
